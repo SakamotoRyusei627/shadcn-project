@@ -1,13 +1,23 @@
-import {defineConfig} from "vite";
-import react from '@vitejs/plugin-react-swc'
+import {defineConfig} from "vitest/config";
 import * as path from "node:path";
+
 
 export default defineConfig({
   root:'./',
-  plugins: [react()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
+    },
+  },
+  test: {
+    globals:true,
+    environment:'jsdom',
+    setupFiles: "./setupTests.ts",
+    coverage: {
+      provider: 'istanbul',
+      reporter: ['text', 'html'],
+      include: ['src/project/**/*.{js,ts,jsx,tsx}'],
+      exclude: ['assets'],
     },
   },
   server:{
