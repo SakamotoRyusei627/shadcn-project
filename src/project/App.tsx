@@ -1,17 +1,9 @@
-import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HomePage from "@/project/pages/HomePage.tsx";
-import FakeTimeTryPage from "@/project/pages/FakeTimeTryPage.tsx";
+import { Button } from "@/project/components/ui/button.tsx";
 
 function App() {
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/fake" element={<FakeTimeTryPage />} />
-        </Routes>
-      </BrowserRouter>
+    <div className="flex flex-col items-center justify-center min-h-svh">
+      <Button>Click me</Button>
     </div>
   );
 }
